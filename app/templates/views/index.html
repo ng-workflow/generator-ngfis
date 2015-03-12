@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+  <title>ngfis-boilerplate</title>
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon.ico"/>
+</head>
+<body>
+  <!-- 内容区域 -->
+  <div id="view"></div>
+
+  <script src="/views/lib/scrat/scrat.js"></script>
+  <script>
+    require.config(__FRAMEWORK_CONFIG__);
+    //从URL中获取route参数 http://localhost:5000/?route=/todo
+    var route = require.getURLParameters(window.location.href, 'route');
+    if(!route){
+      //也支持 http://localhost:5000/modules/todo
+      var m = window.location.pathname.match(/\/modules(\/.+)/);
+      if(m){
+        route = m[1];
+      }
+    }
+    //根据模块ID加载依赖
+    var moduleId = 'modules' + route;
+    if(route && require.options.alias.hasOwnProperty(moduleId)){
+      require.async([moduleId], function(renderFn){
+        //初始化模块并渲染
+        renderFn(document.getElementById('view'));
+      });
+    }else{
+      console.error('页面参数route错误');
+    }
+  </script>
+</body>
+</html>
+

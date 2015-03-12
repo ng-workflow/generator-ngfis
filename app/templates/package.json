@@ -1,0 +1,35 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "author": {
+    "name": "<%= user %>",
+    "email": "<%= email %>"
+  },
+  "main": "server/index.js",
+  "script": {
+    "start": "node server/cluster"
+  },
+  "dependencies": {
+    "compression": "1.4.1",
+    "connect-inject": "0.3.2",
+    "cors": "2.5.3",
+    "errorhandler": "1.3.4",
+    "express": "4.12.2",
+    "express-urlrewrite": "1.1.0",
+    "http-proxy": "1.8.1",
+    "memoizee": "0.3.8",
+    "morgan": "1.5.1",
+    "serve-favicon": "2.2.0"
+  },
+  "devDependencies": {},
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "<%= repository %>"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
