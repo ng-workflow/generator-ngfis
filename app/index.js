@@ -84,7 +84,7 @@ module.exports = yeoman.generators.Base.extend({
       this.directory('.', '.');
 
       //write meta
-      ['package.json', 'component.json', 'README.md'].forEach(function(file){
+      ['package.json', 'component.json', 'README.md', 'views/index.html'].forEach(function(file){
         this.template(file, file, this.appConfig);
       }, this); 
     }
