@@ -46,8 +46,10 @@ module.exports = yeoman.generators.Base.extend({
       name: 'dependencies',
       message: 'Do you need some build-in dependencies?',
       choices: [
-        {name: 'zepto', checked: true},
         {name: 'riot', checked: true},
+        {name: 'fetch', checked: true},
+        {name: 'es6-promise', checked: true},
+        {name: 'zepto', checked: true},
         {name: 'angular', checked: false}
       ]
     }, {

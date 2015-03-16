@@ -6,10 +6,6 @@ module.exports = function(container){
   riot.mount(container, 'todo', {
     title: 'todo dashboard',
     items: [
-      { title: 'Avoid excessive coffeine', done: true },
-      { title: 'Hidden item', hidden: true },
-      { title: 'Be less provocative' },
-      { title: 'Be nice to people' }
     ]
   });
 };
