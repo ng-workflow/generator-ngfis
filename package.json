@@ -1,6 +1,6 @@
 {
   "name": "generator-ngfis",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Generator for ngfis project",
   "keywords": [
     "ngfis",
@@ -23,11 +23,11 @@
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "lodash": "^2.4.1",
+    "lodash": ">=3.9.3",
     "npm-name": "^1.0.1",
     "semver": "^4.3.1",
-    "shelljs": "^0.3.0",
-    "yeoman-generator": "^0.18.1",
+    "shelljs": ">=0.5.0",
+    "yeoman-generator": ">=0.18.1",
     "yosay": "^1.0.0"
   },
   "devDependencies": {
