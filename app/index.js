@@ -12,6 +12,7 @@ module.exports = yeoman.generators.Base.extend({
     this.pkg = require('../package.json');
     this.appConfig = {};
     this.sourceRoot(path.join(__dirname, 'templates'));
+    this.conflicter.force = this.options.force = true;
   },
 
   constructor: function(){
@@ -22,14 +23,6 @@ module.exports = yeoman.generators.Base.extend({
     var done = this.async();
 
     var prompts = [{
-      type: 'confirm',
-      name: 'force',
-      message: 'Current Directory is not empty, force override?',
-      default: false,
-      when: function(input){
-        return fs.readdirSync(process.cwd()).length > 0;
-      }
-    }, {
       type: 'input',
       name: 'name',
       message: 'What is your app name?',
@@ -81,7 +74,6 @@ module.exports = yeoman.generators.Base.extend({
       Object.keys(results).forEach(function(key){
         this.appConfig[key] = results[key];
       }, this);
-      this.conflicter.force = this.options.force = this.appConfig.force;
       done();
     }.bind(this));
   },
@@ -92,11 +84,9 @@ module.exports = yeoman.generators.Base.extend({
       this.bulkDirectory('.', '.');
 
       //write meta
-      this.conflicter.force = this.options.force = true;
       ['package.json', 'component.json', 'README.md', 'views/index.html'].forEach(function(file){
         this.template(file, file, this.appConfig);
       }, this);
-      this.conflicter.force = this.options.force = this.appConfig.force;
     }
   },
 
